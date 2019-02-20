@@ -1,19 +1,19 @@
 import React, { Component } from 'react'
 
-class Login extends Component {
-
+class Products extends Component{
     constructor(props){
         super(props)
             this.state={
-               user:'' 
-            }   
+                products:''
+            }
     }
 
     render(){
         return(
-            <h1>User Login</h1>
+            <h1>Products store</h1>
         )
     }
-}   
 
-export default Login
+}
+
+export default Products

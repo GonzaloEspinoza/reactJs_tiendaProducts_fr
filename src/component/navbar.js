@@ -6,7 +6,7 @@ class Navbar extends Component{
     render(){
         return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-            <a className="navbar-brand" href="#">Tienda</a>
+            <Link className="navbar-brand" to="Products">Tienda</Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
@@ -16,11 +16,13 @@ class Navbar extends Component{
                 <li className="nav-item">
 
               
-                <Link className="nav-link" to="/login">Login</Link>
+                <Link className="nav-link" to="/">Login</Link>
 
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="#">Registro</a>
+
+                    <Link className="nav-link" to="/registro">Registro</Link>
+
                 </li>
                 <li className="nav-item">
                     <a className="nav-link" href="#">Carrito</a>
