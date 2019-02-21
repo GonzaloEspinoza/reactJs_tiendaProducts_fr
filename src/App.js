@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route  } from "react-router-dom"
-
+import './login/login.css'
 import './App.css';
+
 
 import Navbar from './component/navbar'
 import Login from './login/login'
