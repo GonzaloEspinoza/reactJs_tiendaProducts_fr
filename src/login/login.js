@@ -10,7 +10,9 @@ class Login extends Component {
             this.state={
                email:'',
                password:'',
+               responseLoginError:'',
                responseLogin:''
+
             }  
             
             this.send=this.send.bind(this)
@@ -25,19 +27,22 @@ class Login extends Component {
         .then(data=>data.json())
         .then(data=>{
             //console.log(data)
+            if(data){
             if(data.message){
                 console.log(data)
                 this.setState({
-                    responseLogin:data.message
+                    responseLoginError:data.message,
+                    responseLogin:''
                 })
             }else{
                 console.log(data)
                 this.setState({
-                    responseLogin:data.email[0].email
+                    responseLogin:data.email[0].email,
+                    responseLoginError:''
                 }) 
                 console.log(this.state.responseLogin)
             }
-        })
+        }})
     }
 
     
@@ -62,19 +67,20 @@ class Login extends Component {
                 <form onSubmit={this.send}>
                     
                     <label htmlFor="email">Usuario</label>
-                    <input value={this.state.email} onChange={this.onChange.bind(this)} name="email" id="email" type="email" placeholder="Enter Username"/>
+                    <input value={this.state.email} onChange={this.onChange.bind(this)} name="email" id="email" type="email" placeholder="Intrudice tu nombre"/>
                     
-                    <label htmlFor="password">Contaseña</label>
-                    <input value={this.state.password} onChange={this.onChange.bind(this)} name="password" id="password" type="password" placeholder="Enter Password"/>
+                    <label htmlFor="password">Contraseña</label>
+                    <input value={this.state.password} onChange={this.onChange.bind(this)} name="password" id="password" type="password" placeholder="Introduce tu contraseña"/>
                     <br></br>
 
+                    <small id="emailHelp" className="form-text text-muted">{this.state.responseLoginError?this.state.responseLoginError:""}</small>
                     <small id="emailHelp" className="form-text text-muted">{this.state.responseLogin?this.state.responseLogin:""}</small>
 
                     <button  id="send" name="send" type="submit" >Ingresar</button>
                     
                     <br></br>
                     <a href="#">Olvido su contraseña?</a>  <br></br>
-                    <a href="#">No tiene una cuenta?</a>
+                    <a href="#">No tienes una cuenta?</a>
                 </form>
             </div>  
             </div>
